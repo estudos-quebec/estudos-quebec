@@ -1,0 +1,80 @@
+CONTINUAÇÃO do arquivo
+readme
+
+Trabalhando com a camada DOMAIN x DATA
+
+09 - Criaremos as seguintes pastas
+    - Apidotnet.sln 
+    |-- ...
+    |-- api.domain 
+        |-- DTOs 
+        |-- entities 
+            |-- interfaces
+                |-- services
+
+10 - A Partir desta Estrutura 
+10.01 - Criar uma entidade base, para que a hierarquia seja construida a partir dela.
+
+   EXEMPLO:
+       Esse exemplo abaixo define todas as entidades terão um Id, CreateAt, UpdateAt, DeleteAt.
+       Não seria necessário criar em cada entidade essas propriedades.
+
+   [api.domain\entities\BaseEntity.cs]
+       // Base de outra classe, abstract
+       public abstract class BaseEntity
+       {
+           [Key]
+           public Guid Id { get; set; }
+           private DateTime? CreateAt { get; set; }
+           public DateTime? UpdateAt { get; set; }
+           public DateTime? DeleteAt { get; set; }
+       }
+
+11.01 - Criar a Entidade UserEntity herdando as caracteristicas de BaseEntity.
+
+    COMENTARIO: O arquivo abaixo, contém as Propriedades de BaseEntity, e as Propriedades Name e Email da classe abaixo.  
+
+    [api.domain\entities\UserEntity.cs]
+    public class UserEntity : BaseEntity
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+    }
+
+
+************* CAMADA DATA
+
+12 - Criar a referencia da camada DOMAIN com a DATA
+    # dotnet add .\api.infra.data\ reference .\api.domain\   
+
+12 - Criaremos as seguintes pastas
+    - Apidotnet.sln 
+    |-- ...
+    |-- api.infra.data 
+        |-- context 
+        |-- mapping 
+        |-- repository 
+
+13 - Criar o Arquivo de Mapping
+    Neste arquivo é definido a estrutura de mapeamento para o Entity x Base de Dados
+    [api.infra.data\mapping\UserMap.cs]
+    public class UserMap : IEntityTypeConfiguration<UserEntity>
+    {
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
+        {
+            builder.ToTable("User");
+
+            builder.HasKey( p => p.Id);
+
+            builder .HasIndex( p => p.Email)
+                    .IsUnique();
+
+            builder .Property( u => u.Name)
+                    .IsRequired()
+                    .HasMaxLength(60);
+
+            builder .Property( u => u.Email)
+                    .HasMaxLength(100);
+
+        }
+    }

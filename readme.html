@@ -1,0 +1,108 @@
+
+README
+
+DOTNET - Clean Architecture 
+
+Para o GIT 
+   Selecionar uma pasta
+   #git init
+   #git remote add origin https://github.com/estudos-quebec/estudos-quebec.git
+   #git pull
+
+Fluxo de Entrada das Informações
+
+   01 - Application/UI       - WEB ou API  - Devices, DB, WEB, UI, External Devices
+   02 - Infrastructure       - Gateways, Controllers, Presenters (Infra.Data / Infra.CrossCutting)
+   03 - Application/Services - Use Cases
+   04 - Domain               - Entities
+
+   01 -> 02 -> 03 -> 04
+
+   Camada mais externa para a mais Interna 01 -> 04
+   01 - Camada de aplicação: é a camada mais externa como sua estrutura de interface do usuário/web que é a entrada no sistema.
+        Responsável pelo projeto principal, pois é onde será desenvolvido os controladores e serviços da API. 
+        Tem a função de receber todas as requisições e direcioná-las a algum serviço para executar uma determinada ação.
+        Possui referências das camadas Service e Domain.
+
+   02 - Camada de infraestrutura: é dividida em duas sub-camadas.
+   02.01 - Infra.Data         - Realiza a persistência com o banco de dados.
+   02.02 - Infra.CrossCutting - Camada a parte que não obedece a hierarquia de camada. 
+                                Essa camada cruza toda a hierarquia. 
+                                Contém as funcionalidades que pode ser utilizada em qualquer parte do código. 
+                                Por exemplo, validação de CPF/CNPJ, consumo de API externa e utilização de alguma segurança.
+        Possui referências da camada Domain.     
+        
+   03 - Camada de serviço: seria o “coração” do projeto, pois é nela que é feita todas as regras de negócio e todas as validações, antes de persistir os dados no banco de dados.
+        Possui referências das camadas Domain, Infra.Data e Infra.CrossCutting. 
+
+   04 - Camada de domínio: responsável pela implementação de classes/modelos, as quais serão mapeadas para o banco de dados. 
+        Além de obter as declarações de interfaces, constantes, DTOs (Data Transfer Object) e enums.
+
+   IMPORTANTE:
+      A estrutura pode ser da foram que voce achar melhor, para que atenda ao padrao é necessário que haja responsabilidade das camadas 
+
+
+Passo a passo do Projeto
+
+Pre-Requisitos 
+   - Instalar o DOTNET Core 
+   - Iniciar o Projeto a partir de uma pasta vazia.
+   - O comando [dotnet new classlib --help] apresentará as classlibs instaladas, exemplo [net5.0 ou netcoreapp3.1, etc] 
+
+   PASSOS
+01 - Criar a Solução onde estará a definiçao dos projetos associados     
+     # dotnet new sln --name ApiDotNet 
+
+02 - Criar o Projeto Domain -- Framework utilizado net5.0
+     # dotnet new classlib -n domain -o api.domain -f net5.0
+
+03 - Criar o Projeto Infra Data 
+     # dotnet new classlib -n data -o api.infra.data -f net5.0
+
+04 - Criar o Projeto Infra CrossCutting 
+     # dotnet new classlib -n crosscutting -o api.infra.crosscutting -f net5.0
+
+05 - Criar o Projeto Service 
+     # dotnet new classlib -n service -o api.service -f net5.0     
+
+06 - Criar o Projeto Application  
+     # dotnet new webapi -n application -o api.application --no-https
+
+07 - Anexar as Camadas a Solution
+     # dotnet sln add .\api.application\ 
+     # dotnet sln add .\api.domain\ 
+     # dotnet sln add .\api.infra.data\ 
+     # dotnet sln add .\api.infra.crosscutting\ 
+     # dotnet sln add .\api.service\           
+
+Ao final
+
+    - Apidotnet.sln 
+    |-- api.application
+    |-- api.domain
+    |-- api.infra.crosscutting
+    |-- api.infra.data
+    |-- api.service
+
+IMPORTANTE
+    Após este processo, voce deve fechar o VSCODE e abrir novamente.
+    Aguarde uns 10 a 20 segundos, ele perguntará se é para abrir a Solution[apidotnet.sln], em seguida ele pergunta se quer adicionar o ASSET no build solution.
+    Isso é apenas para criar a pasta chamada .vscode, onde terá 2 arquivos JSON, tasks.json e launch.json. 
+    Com isso voce já pode executar os proximos passos.
+
+08 - Voce pode utilizar o RUN AND DEBUG do VSCODE ou utilizar o comando abaixo para executar.
+    # dotnet run -p .\api.application\application.csproj
+
+08.01 - Após a execução acima, deve-se chamar no browser este link[ http://localhost:5000/WeatherForecast ]
+      - Esse método na API que vem de demonstraçao.
+
+      No arquivo de Controller tem a implementação do método GET.
+
+      [HttpGet]
+      public IEnumerable<WeatherForecast> Get()  
+
+Temos no momento as pastas e a API funcionando.
+
+CONTINUAÇÃO no arquivo
+readme.002
+

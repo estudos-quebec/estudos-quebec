@@ -1,0 +1,12 @@
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\bin\Debug\net5.0\service.deps.json
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\bin\Debug\net5.0\service.dll
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\bin\Debug\net5.0\ref\service.dll
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\bin\Debug\net5.0\service.pdb
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.csprojAssemblyReference.cache
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.GeneratedMSBuildEditorConfig.editorconfig
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.AssemblyInfoInputs.cache
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.AssemblyInfo.cs
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.csproj.CoreCompileInputs.cache
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.dll
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\ref\service.dll
+F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.service\obj\Debug\net5.0\service.pdb
