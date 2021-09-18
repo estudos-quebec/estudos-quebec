@@ -78,3 +78,38 @@ Trabalhando com a camada DOMAIN x DATA
 
         }
     }
+
+
+14 - (DOTNET packages) Inserir os pacotes necessários para conexão com o Banco
+    Incluir no arquivo data.csproj os pacotes necessários para o Banco de Dados
+    [api.infra.data\data.csproj]
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.8">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.8">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+15 - Neste momento, voce deve acessar a pasta "api.infra.data\" executar o comando abaixo para confirmar que está tudo ok.
+     E vamos executar o comando para criar o script para o banco, vamos chamar o script de "ApiMigrations". 
+    # cd \api.infra.data\    
+    # dotnet build 
+    -- APOS este comando com sucesso.
+    # dotnet ef migrations add ApiMigrations
+
+    Após este passo, aparecerá esta pasta com o script:
+    |-- ...
+    |-- api.infra.data 
+        |-- Migrations
+
+    -- E POR ULTIMO, ainda na pasta \api.infra.data\ executando abaixo, 
+    -- seu banco será criado junto com a tabela User  
+    # dotnet ef database update
+    

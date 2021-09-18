@@ -10,3 +10,15 @@ F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.domain\obj\Debug\net5.0
 F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.domain\obj\Debug\net5.0\domain.dll
 F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.domain\obj\Debug\net5.0\ref\domain.dll
 F:\OneDrive\Projetos_DevOps\estudos\00-APIDotNetBase\api.domain\obj\Debug\net5.0\domain.pdb
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\bin\Debug\net5.0\domain.deps.json
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\bin\Debug\net5.0\domain.dll
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\bin\Debug\net5.0\ref\domain.dll
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\bin\Debug\net5.0\domain.pdb
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.csprojAssemblyReference.cache
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.AssemblyInfoInputs.cache
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.AssemblyInfo.cs
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.csproj.CoreCompileInputs.cache
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.dll
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\ref\domain.dll
+F:\OneDrive\Projetos_DevOps\estudos\estudos-quebec\api.domain\obj\Debug\net5.0\domain.pdb
